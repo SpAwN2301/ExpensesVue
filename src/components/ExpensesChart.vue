@@ -29,11 +29,11 @@ export default defineComponent({
                 {
                     data: dataValues.value,
                     backgroundColor: [
-                        "#77CEFF",
-                        "#0079AF",
-                        "#123E6B",
-                        "#97B0C4",
-                        "#A5C8ED",
+                        "#44B549",
+                        "#117ebe",
+                        "#ec3536",
+                        "#578B9A",
+                        "#FFCD27",
                     ],
                 },
             ],
