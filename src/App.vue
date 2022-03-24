@@ -8,7 +8,7 @@ import ExpensesView from "./components/ExpensesView.vue";
     <ExpensesView />
 </template>
 
-<style>
+<style lang="scss">
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;

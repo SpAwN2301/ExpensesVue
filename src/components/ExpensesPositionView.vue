@@ -57,13 +57,13 @@ export default {
             this.$emit("deletePost", id);
         },
         emitEditPost() {
-            if (this.isChanging) {                
+            if (this.isChanging) {
                 const editablePost = {
                     name: this.newName || this.post.name,
                     sum: this.newValue,
-                    id: this.post.id
-                }
-                
+                    id: this.post.id,
+                };
+
                 this.isChanging = false;
                 this.$emit("editPost", editablePost);
             } else {
@@ -77,75 +77,102 @@ export default {
 };
 </script>
 
-<style scoped>
-li.ExpensesPositionView {
+<style lang="scss" scoped>
+.ExpensesPositionView {
     padding: 3vw;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.ExpensesPositionView__text-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    @media (min-width: 420px) {
+        padding: 12px;
+    }
 
-    width: 60vw;
-    overflow: auto;
-}
-p.ExpensesPositionView__name {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 5vw;
-    color: #000000;
-}
-p.ExpensesPositionView__coast {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 4vw;
-    color: #474747;
-}
-.ExpensesPositionView__btn-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 3vw;
+    &__text-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        width: 60vw;
+        overflow: auto;
+        @media (min-width: 420px) {
+            width: 60%;
+        }
+    }
+    &__name {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 5vw;
+        color: #000000;
+        @media (min-width: 420px) {
+            font-size: 16px;
+        }
+    }
+    &__coast {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 4vw;
+        color: #474747;
+        @media (min-width: 420px) {
+            font-size: 14px;
+        }
+    }
+    &__btn-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 3vw;
+        @media (min-width: 420px) {
+            column-gap: 10px;
+        }
+    }
 }
 
-.ExpensesCreateView__text-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+.ExpensesCreateView {
+    &__text-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
 
-    width: 60vw;
-    overflow: auto;
-}
-input.ExpensesCreateView__name {
-    outline: none;
-    border: none;
+        width: 60vw;
+        overflow: auto;
+        @media (min-width: 420px) {
+            width: 60%;
+        }
+    }
+    &__name {
+        outline: none;
+        border: none;
 
-    max-width: 100%;
+        max-width: 100%;
 
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 5vw;
-    color: #000000;
-}
-input.ExpensesCreateView__coast {
-    outline: none;
-    border: none;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 5vw;
+        color: #000000;
+        @media (min-width: 420px) {
+            font-size: 16px;
+        }
+    }
+    &__coast {
+        outline: none;
+        border: none;
 
-    max-width: 75%;
+        max-width: 75%;
 
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 4vw;
-    color: #474747;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 4vw;
+        color: #474747;
+        @media (min-width: 420px) {
+            font-size: 14px;
+        }
+    }
 }
 </style>

@@ -27,17 +27,17 @@ export default {
         postId: {
             type: Number,
             required: true,
-        }
+        },
     },
     methods: {
         emitEditPost(id) {
             this.$emit("editPost", id);
-        }
-    }
+        },
+    },
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 button {
     cursor: pointer;
 
@@ -51,9 +51,15 @@ button {
     border-radius: 50%;
     border: none;
     background: #117ebe;
-}
-button > svg {
-    width: 100%;
-    height: auto;
+    @media (min-width: 420px) {
+        padding: 12px;
+        width: 50px;
+        height: 50px;
+    }
+
+    & > svg {
+        width: 100%;
+        height: auto;
+    }
 }
 </style>

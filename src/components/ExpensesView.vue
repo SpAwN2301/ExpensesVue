@@ -1,13 +1,15 @@
 <template>
     <div class="ExpensesView">
-        <ExpensesChart :names="getNames" :costs="getCosts"/>
-        <ExpensesToast :message="toastMsg" />
-        <ExpensesCreateView @addingPost="addPost" />
-        <ExpensesListView
-            :posts="posts"
-            @deletePost="deletePost"
-            @editPost="editPost"
-        />
+        <ExpensesChart :names="getNames" :costs="getCosts" />
+        <div>
+            <ExpensesToast :message="toastMsg" />
+            <ExpensesCreateView @addingPost="addPost" />
+            <ExpensesListView
+                :posts="posts"
+                @deletePost="deletePost"
+                @editPost="editPost"
+            />
+        </div>
     </div>
 </template>
 
@@ -108,10 +110,10 @@ export default {
     },
     computed: {
         getNames() {
-            return this.posts.map(a => a.name);;
+            return this.posts.map((a) => a.name);
         },
         getCosts() {
-            return this.posts.map(a => a.sum);;
+            return this.posts.map((a) => a.sum);
         },
         getNowDate() {
             const d = new Date();
@@ -141,9 +143,13 @@ export default {
 </script>
 
 
-<style scoped>
+<style lang="scss" scoped>
 .ExpensesView {
     position: relative;
     padding: 10vw 2vw 2vw 2vw;
+    @media (min-width: 420px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 </style>

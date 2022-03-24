@@ -61,13 +61,13 @@ export default {
             };
 
             this.cancelAdding();
-            this.$emit("addingPost", newPost)
+            this.$emit("addingPost", newPost);
         },
     },
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .ExpensesCreateButton_fake {
     opacity: 0;
     margin: 0;
@@ -88,51 +88,66 @@ export default {
 
     background: #e6e6e6;
     border-radius: 3vw;
-}
-.ExpensesCreateView.invisible {
-    transition: 0.2s;
-    opacity: 0;
-    transform: scaleX(0);
-}
-.ExpensesCreateView__text-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    @media (min-width: 420px) {
+        padding: 12px;
+    }
+    &.invisible {
+        transition: 0.2s;
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    &__text-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
 
-    width: 60vw;
-    overflow: auto;
-}
-input.ExpensesCreateView__name {
-    outline: none;
-    border: none;
+        width: 60vw;
+        overflow: auto;
+        @media (min-width: 420px) {
+            width: 60%;
+        }
+    }
+    &__name {
+        outline: none;
+        border: none;
 
-    padding-left: 2vw;
-    max-width: 100%;
+        padding-left: 2vw;
+        max-width: 100%;
 
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 5vw;
-    color: #000000;
-}
-input.ExpensesCreateView__coast {
-    outline: none;
-    border: none;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 5vw;
+        color: #000000;
+        @media (min-width: 420px) {
+            font-size: 16px;;
+        }
+    }
+    &__coast {
+        outline: none;
+        border: none;
 
-    padding-left: 2vw;
-    max-width: 75%;
+        padding-left: 2vw;
+        max-width: 75%;
 
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 4vw;
-    color: #474747;
-}
-.ExpensesCreateView__btn-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 3vw;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 4vw;
+        color: #474747;
+        @media (min-width: 420px) {
+            font-size: 14px;;
+        }
+    }
+    &__btn-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 3vw;
+        @media (min-width: 420px) {
+            column-gap: 10px;
+        }
+    }
 }
 </style>
