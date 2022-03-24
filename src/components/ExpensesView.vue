@@ -1,5 +1,7 @@
 <template>
     <div class="ExpensesView">
+        <ExpensesChart :names="getNames" :costs="getCosts"/>
+        <ExpensesToast :message="toastMsg" />
         <ExpensesCreateView @addingPost="addPost" />
         <ExpensesListView
             :posts="posts"
@@ -10,14 +12,18 @@
 </template>
 
 <script>
+import ExpensesChart from "./ExpensesChart.vue";
+import ExpensesToast from "./ExpensesToast.vue";
 import ExpensesCreateView from "./ExpensesCreateView.vue";
 import ExpensesListView from "./ExpensesListView.vue";
 
 export default {
     name: "ExpensesView",
     components: {
+        ExpensesToast,
         ExpensesCreateView,
         ExpensesListView,
+        ExpensesChart,
     },
     data: () => ({
         posts: [],
@@ -41,12 +47,17 @@ export default {
         getPost(id) {},
 
         async deletePost(id) {
-            const response = await fetch(
-                `https://new.maincore.ru/api/test/expense/${id}`,
-                {
-                    method: "DELETE",
-                }
-            );
+            try {
+                const response = await fetch(
+                    `https://new.maincore.ru/api/test/expense/${id}`,
+                    {
+                        method: "DELETE",
+                    }
+                );
+                this.toastMsg = "Позиция успешно удалена!";
+            } catch (error) {
+                this.toastMsg = error;
+            }
             this.getPosts();
         },
 
@@ -96,6 +107,12 @@ export default {
         },
     },
     computed: {
+        getNames() {
+            return this.posts.map(a => a.name);;
+        },
+        getCosts() {
+            return this.posts.map(a => a.sum);;
+        },
         getNowDate() {
             const d = new Date();
             const curr_date = d.getDate();
@@ -125,4 +142,8 @@ export default {
 
 
 <style scoped>
+.ExpensesView {
+    position: relative;
+    padding: 10vw 2vw 2vw 2vw;
+}
 </style>

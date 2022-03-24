@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="ExpensesCreateView__wrapper">
         <ExpensesCreateButton
             :isVisible="isVisible"
             @addingPost="addingPost"
@@ -74,9 +74,12 @@ export default {
     z-index: 0;
     pointer-events: none;
 }
+.ExpensesCreateButton__wrapper {
+    margin-top: 6vw;
+}
 .ExpensesCreateView {
     transform-origin: right center;
-    transition: 0.2s;
+    transition: 0.5s;
     padding: 3vw;
 
     display: flex;
@@ -87,6 +90,7 @@ export default {
     border-radius: 3vw;
 }
 .ExpensesCreateView.invisible {
+    transition: 0.2s;
     opacity: 0;
     transform: scaleX(0);
 }
