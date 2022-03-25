@@ -1,5 +1,5 @@
 <template>
-    <li class="ExpensesPositionView">
+    <li class="ExpensesPositionView" @keydown.enter="emitEditPost()">
         <div class="ExpensesPositionView__text-wrapper" v-show="!isChanging">
             <p class="ExpensesPositionView__name">{{ this.post.name }}</p>
             <p class="ExpensesPositionView__coast">-{{ this.post.sum }}₽</p>
