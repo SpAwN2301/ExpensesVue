@@ -2,7 +2,7 @@
     <div class="ExpensesView">
         <ExpensesChart :names="getNames" :costs="getCosts" />
         <div>
-            <ExpensesToast :message="toastMsg" />
+            <ExpensesToast :isToastAppear="isToastVisible" :message="toastMsg" />
             <ExpensesCreateView @addingPost="addPost" />
             <ExpensesListView
                 :posts="posts"
@@ -57,8 +57,10 @@ export default {
                     }
                 );
                 this.toastMsg = "Позиция успешно удалена!";
+                this.apearToast();
             } catch (error) {
                 this.toastMsg = error;
+                this.apearToast();
             }
             this.getPosts();
         },
@@ -77,10 +79,11 @@ export default {
                         },
                     }
                 );
-                const json = await response.json();
                 this.toastMsg = "Позиция успешно изменена!";
+                this.apearToast();
             } catch (error) {
                 this.toastMsg = error;
+                this.apearToast();
             }
             this.getPosts();
         },
@@ -102,11 +105,22 @@ export default {
                 );
                 const json = await response.json();
                 this.toastMsg = "Позиция успешно добавлена!";
+                this.apearToast();
             } catch (error) {
                 this.toastMsg = error;
+                this.apearToast();
             }
             this.getPosts();
         },
+
+
+        apearToast() {
+                this.isToastVisible = true;
+            setTimeout(() => {
+                console.log(1);
+                this.isToastVisible = false;
+            }, 5000);
+        }
     },
     computed: {
         getNames() {
