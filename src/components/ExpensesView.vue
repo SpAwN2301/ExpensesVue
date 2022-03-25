@@ -70,7 +70,7 @@ export default {
                 const response = await fetch(
                     `https://new.maincore.ru/api/test/expense/${editablePost.id}`,
                     {
-                        method: "PUTCH",
+                        method: "PATCH",
                         body: JSON.stringify(editablePost),
                         headers: {
                             "Content-Type": "application/json",
