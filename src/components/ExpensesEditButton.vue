@@ -64,6 +64,7 @@ export default {
   }
 }
 button {
+  user-select: none;
   transition: 0.2s;
   cursor: pointer;
 

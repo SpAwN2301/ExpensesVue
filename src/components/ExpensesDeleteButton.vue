@@ -40,6 +40,7 @@ export default {
 
 <style lang="scss" scoped>
 button {
+    user-select: none;
     cursor: pointer;
 
     padding: 2vw;

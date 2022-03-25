@@ -27,6 +27,7 @@ export default {
 
 <style lang="scss" scoped>
 button {
+    user-select: none;
     margin: 13vw 3vw -13vw auto;
     position: relative;
     z-index: 2;

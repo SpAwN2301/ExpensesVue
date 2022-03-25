@@ -18,6 +18,7 @@ export default {
 
 <style lang="scss" scoped>
 button {
+    user-select: none;
     position: relative;
     cursor: pointer;
 
