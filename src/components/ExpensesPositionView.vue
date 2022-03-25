@@ -18,7 +18,7 @@
             />
         </div>
         <div class="ExpensesPositionView__btn-wrapper">
-            <ExpensesEditButton :postId="post.id" @editPost="emitEditPost" />
+            <ExpensesEditButton :postId="post.id" @editPost="emitEditPost" :isChanging="isChanging" />
             <ExpensesDeleteButton
                 v-show="!isChanging"
                 :postId="post.id"
